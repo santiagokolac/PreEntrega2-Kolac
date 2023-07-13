@@ -1,7 +1,22 @@
 * {
   margin: 0px;
 }
-img {
-  width: 100%;
-  height: auto;
+
+body {
+  background-image: url(../imgs/carnival-bg.png);
+  background-size: cover;
+}
+
+button {
+  background-color: #b8914e;
+  margin-top: 42%;
+  margin-left: 46%;
+  width: 8vw;
+  height: 4vh;
+  border: dotted 3px #902010;
+}
+
+button p {
+  color: #2b4055;
+  font-weight: bold;
 }
