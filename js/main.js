@@ -27,7 +27,7 @@ function inicio() {
 
   for (let i = 1; i <= cantidadPersonas; i++) {
     while (true) {
-      altura = prompt(`Persona ${i}: Ingresa su altura`);
+      altura = prompt(`Persona ${i}: Ingrese su altura en centímetros`);
 
       if (!isNaN(altura) && altura >= 0) {
         break;
