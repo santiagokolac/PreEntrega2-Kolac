@@ -11,6 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 100vh;
   font-size: 16px;
 }
 
@@ -76,4 +77,73 @@ button p {
   font-weight: bolder;
   text-align: center;
   padding: 5px;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1700px) {
+  #indicaciones {
+    width: 50%;
+    height: auto;
+  }
+  #indicaciones h1 {
+    font-size: 2vw;
+  }
+  #indicaciones h2 {
+    font-size: 1.5vw;
+  }
+  #tarifa h3,
+  #recaudacion h4 {
+    font-size: 1.7vw;
+  }
+  button {
+    width: 40%;
+  }
+  button p {
+    font-size: 1.2vw;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  #indicaciones {
+    width: 70%;
+  }
+  #indicaciones h1 {
+    font-size: 3vw;
+  }
+  #indicaciones h2 {
+    font-size: 2vw;
+  }
+  #tarifa h3,
+  #recaudacion h4 {
+    font-size: 1.8vw;
+  }
+  button {
+    width: 60%;
+  }
+  button p {
+    font-size: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #indicaciones {
+    width: 95%;
+    height: auto;
+  }
+  #indicaciones h1 {
+    font-size: 4vw;
+  }
+  #indicaciones h2 {
+    font-size: 3vw;
+  }
+  #tarifa h3,
+  #recaudacion h4 {
+    font-size: 2.5vw;
+  }
+  button {
+    width: 80%;
+    height: auto;
+  }
+  button p {
+    font-size: 2vw;
+  }
 }
