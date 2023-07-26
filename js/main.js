@@ -1,75 +1,137 @@
 function inicio() {
-  let personas = [];
-  let personasQueEntran = [];
-  const cantidadPersonas = 8;
-  let altura;
-  let edad;
-  let dineroRecaudado;
-  let salario;
-
-  function evaluarEdad() {
-    while (true) {
-      edad = prompt(`Ingrese su edad`);
-
-      if (!isNaN(edad) && edad >= 0) {
-        break;
-      } else {
-        alert("Por favor, ingrese una edad válida (mayor o igual a 0).");
-      }
+  class MontañaRusa {
+    constructor() {
+      this.personas = [];
+      this.personasQueEntran = [];
+      this.cantidadPersonas;
+      this.altura;
+      this.edad;
+      this.dineroAAbonar;
+      this.dineroRecaudado = 0;
+      this.salario;
+      this.largoDeFila;
+      this.dineroEl = document.getElementById("dineroEl");
+      this.salarioEl = document.getElementById("salarioEl");
     }
 
-    if (edad >= 18) {
-      alert("Usted debe abonar $1000");
-    } else {
-      alert("Usted debe abonar $500");
+    evaluarEdad() {
+      while (true) {
+        this.edad = prompt("Ingrese su edad");
+
+        if (!isNaN(this.edad) && this.edad >= 0) {
+          break;
+        } else {
+          alert("Por favor, ingrese una edad válida (mayor o igual a 0)");
+        }
+      }
+
+      if (this.edad >= 18) {
+        this.dineroAAbonar = 1000;
+        alert("Usted debe abonar $1000");
+      } else {
+        this.dineroAAbonar = 500;
+        alert("Usted debe abonar $500");
+      }
+
+      return this.dineroAAbonar;
+    }
+
+    obtenerFechaActual() {
+      const fechaActual = new Date();
+      const dia = fechaActual.getDate();
+      const mes = fechaActual.getMonth() + 1;
+      const año = fechaActual.getFullYear();
+
+      return `${dia}/${mes}/${año}`;
+    }
+
+    iniciarJuego() {
+      this.largoDeFila = parseInt(
+        prompt(
+          "Seleccione el largo de la fila:\n1 - Corta\n2 - Media\n3 - Larga"
+        )
+      );
+
+      switch (this.largoDeFila) {
+        case 1:
+          this.cantidadPersonas = 3;
+          break;
+        case 2:
+          this.cantidadPersonas = 5;
+          break;
+        case 3:
+          this.cantidadPersonas = 8;
+          break;
+        default:
+          alert("Opción inválida. Largo de fila por defecto: Corta");
+          this.cantidadPersonas = 3;
+      }
+
+      for (let i = 1; i <= this.cantidadPersonas; i++) {
+        while (true) {
+          this.altura = prompt(
+            `Persona ${i}: Ingrese su altura en centímetros`
+          );
+
+          if (!isNaN(this.altura) && this.altura >= 0) {
+            break;
+          } else {
+            alert("Por favor, ingrese una altura válida");
+          }
+        }
+
+        if (this.altura >= 160) {
+          alert("Usted puede subir a la montaña rusa");
+          this.dineroRecaudado += this.evaluarEdad();
+        } else {
+          alert("Usted no puede subir a la montaña rusa");
+        }
+
+        let persona = {
+          altura: parseFloat(this.altura),
+          edad: parseInt(this.edad),
+        };
+
+        this.personas.push(persona);
+      }
+
+      this.personasQueEntran = this.personas.filter(
+        (persona) => persona.altura >= 160
+      );
+
+      console.log(this.personas);
+      console.log(this.personasQueEntran);
+
+      this.dineroRecaudado = this.personasQueEntran.reduce((total, persona) => {
+        if (persona.edad >= 18) {
+          return total + 1000;
+        } else {
+          return total + 500;
+        }
+      }, 0);
+
+      console.log(
+        "Dinero recaudado en la montaña rusa el día " +
+          this.obtenerFechaActual() +
+          ": $" +
+          this.dineroRecaudado
+      );
+
+      this.dineroEl.innerText = "$" + this.dineroRecaudado;
+
+      this.salario = (this.dineroRecaudado * 30) / 100;
+
+      console.log(
+        "El salario del encargado de la fila el día " +
+          this.obtenerFechaActual() +
+          ": $" +
+          this.salario
+      );
+
+      this.salarioEl.innerText = "$" + this.salario;
     }
   }
 
-  for (let i = 1; i <= cantidadPersonas; i++) {
-    while (true) {
-      altura = prompt(`Persona ${i}: Ingrese su altura en centímetros`);
-
-      if (!isNaN(altura) && altura >= 0) {
-        break;
-      } else {
-        alert("Por favor, ingrese una altura válida (mayor o igual a 0).");
-      }
-    }
-
-    if (altura >= 160) {
-      alert("Usted puede subir a la montaña rusa");
-      evaluarEdad();
-    } else {
-      alert("Usted no puede subir a la montaña rusa");
-    }
-
-    let persona = {
-      altura: parseFloat(altura),
-      edad: parseInt(edad),
-    };
-
-    personas.push(persona);
-  }
-
-  personasQueEntran = personas.filter((persona) => persona.altura >= 160);
-
-  console.log(personas);
-
-  console.log(personasQueEntran);
-
-  dineroRecaudado = personasQueEntran.reduce((total, persona) => {
-    if (persona.edad >= 18) {
-      return total + 1000;
-    } else {
-      return total + 500;
-    }
-  }, 0);
-
-  alert(
-    "Dinero recaudado en la montaña rusa el día de hoy: $" + dineroRecaudado
-  );
-
-  salario = (dineroRecaudado * 30) / 100;
-
-  alert("El salario del encargado de la fila el día de hoy es de $" + salario);
+  const montañaRusa = new MontañaRusa();
+  montañaRusa.iniciarJuego();
 }

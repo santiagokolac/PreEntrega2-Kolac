@@ -7,12 +7,62 @@ body {
   background-size: cover;
 }
 
+#indicaciones {
+  width: 25%;
+  height: 45%;
+  background-color: rgba(184, 145, 78, 0.9);
+  border-radius: 3%;
+  border: dashed 4px #902010;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Jacques Francois Shadow", cursive;
+  padding: 1%;
+  margin: 10% 37.5% 0%;
+}
+
+#indicaciones h1 {
+  text-align: center;
+  color: #2b4055;
+  font-size: 3.5vh;
+}
+
+#indicaciones h2 {
+  text-align: center;
+  color: #902010;
+  font-family: "IM Fell English", serif;
+  font-size: 3.5vh;
+}
+
+#tarifa h3 {
+  text-align: center;
+  font-family: "MedievalSharp", cursive;
+  color: #2b4055;
+  font-size: 2.5vh;
+}
+
+#tarifa h3 span {
+  color: #902010;
+}
+
+#recaudacion h4 {
+  text-align: center;
+  color: #2b4055;
+  font-family: "MedievalSharp", cursive;
+  font-size: 2.5vh;
+}
+
+#recaudacion h4 span {
+  color: #902010;
+}
+
 button {
   background-color: #b8914e;
-  margin-top: 42%;
-  margin-left: 46%;
-  width: 8vw;
-  height: 4vh;
+  margin-top: 1%;
+  margin-left: 47%;
+  width: 9vw;
+  height: 5vh;
   border: dotted 3px #902010;
 }
 
