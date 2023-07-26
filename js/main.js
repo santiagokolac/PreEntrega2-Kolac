@@ -18,10 +18,10 @@ function inicio() {
       while (true) {
         this.edad = prompt("Ingrese su edad");
 
-        if (!isNaN(this.edad) && this.edad >= 0) {
+        if (!isNaN(this.edad) && this.edad >= 0 && this.edad <= 118) {
           break;
         } else {
-          alert("Por favor, ingrese una edad válida (mayor o igual a 0)");
+          alert("Por favor, ingrese una edad válida (entre 0 y 118)");
         }
       }
 
@@ -70,13 +70,13 @@ function inicio() {
       for (let i = 1; i <= this.cantidadPersonas; i++) {
         while (true) {
           this.altura = prompt(
-            `Persona ${i}: Ingrese su altura en centímetros`
+            `Persona ${i}: Ingrese su altura en centímetros (entre 54 y 251)`
           );
 
-          if (!isNaN(this.altura) && this.altura >= 0) {
+          if (!isNaN(this.altura) && this.altura >= 54 && this.altura <= 251) {
             break;
           } else {
-            alert("Por favor, ingrese una altura válida");
+            alert("Por favor, ingrese una altura válida (entre 54 y 251)");
           }
         }
 
