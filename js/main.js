@@ -1,3 +1,6 @@
+let boton = document.getElementById("queueBtn");
+boton.addEventListener("click", inicio);
+
 function inicio() {
   class MontañaRusa {
     constructor() {
@@ -12,6 +15,23 @@ function inicio() {
       this.largoDeFila;
       this.dineroEl = document.getElementById("dineroEl");
       this.salarioEl = document.getElementById("salarioEl");
+      this.personasEntraronKey = "personasEntraron";
+    }
+
+    guardarPersonasEntraron() {
+      localStorage.setItem(
+        this.personasEntraronKey,
+        JSON.stringify(this.personasQueEntran)
+      );
+    }
+
+    cargarPersonasEntraron() {
+      const personasEntraronJSON = localStorage.getItem(
+        this.personasEntraronKey
+      );
+      if (personasEntraronJSON) {
+        this.personasQueEntran = JSON.parse(personasEntraronJSON);
+      }
     }
 
     evaluarEdad() {
@@ -129,9 +149,12 @@ function inicio() {
       );
 
       this.salarioEl.innerText = "$" + this.salario;
+
+      this.guardarPersonasEntraron();
     }
   }
 
   const montañaRusa = new MontañaRusa();
+  montañaRusa.cargarPersonasEntraron();
   montañaRusa.iniciarJuego();
 }

@@ -14,23 +14,27 @@
     <title>Rollercoaster</title>
   </head>
   <body>
-    <div id="columna">
-      <div id="indicaciones">
-        <h1>YOU MUST BE THIS TALL TO RIDE THIS RIDE AT THE CARNIVAL</h1>
-        <h2>-------- 160 cm --------</h2>
-        <div id="tarifa">
-          <h3>Adults: <span>$1000</span></h3>
-          <h3>Minors: <span>$500</span></h3>
-        </div>
-        <div id="recaudacion">
-          <h4>Total money earned: <span id="dineroEl">$0</span></h4>
-          <h4>Your wage: <span id="salarioEl">$0</span></h4>
+    <div id="column">
+      <div id="cartel">
+        <div id="indicaciones">
+          <h1>YOU MUST BE THIS TALL TO RIDE THIS RIDE AT THE CARNIVAL</h1>
+          <h2>-------- 160 cm --------</h2>
+          <div id="tarifa">
+            <h3>Adults: <span>$1000</span></h3>
+            <h3>Minors: <span>$500</span></h3>
+          </div>
+          <div id="recaudacion">
+            <h4>Total money earned: <span id="dineroEl">$0</span></h4>
+            <h4>Your wage: <span id="salarioEl">$0</span></h4>
+          </div>
         </div>
       </div>
-      <button onclick="inicio()">
+      <button id="queueBtn">
         <p>Get in the queue!</p>
       </button>
     </div>
+    <div id="column3" class="column"></div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
