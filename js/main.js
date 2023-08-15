@@ -2,6 +2,23 @@ let boton = document.getElementById("queueBtn");
 boton.addEventListener("click", inicio);
 
 function inicio() {
+  document.getElementById("indicaciones").style.display = "none";
+  document.getElementById("largoFila").style.display = "block";
+  boton.style.display = "none";
+
+  document.getElementById("cortaBtn").addEventListener("click", () => {
+    montañaRusa.cantidadPersonas = 3;
+    montañaRusa.iniciarJuego();
+  });
+  document.getElementById("mediaBtn").addEventListener("click", () => {
+    montañaRusa.cantidadPersonas = 5;
+    montañaRusa.iniciarJuego();
+  });
+  document.getElementById("largaBtn").addEventListener("click", () => {
+    montañaRusa.cantidadPersonas = 8;
+    montañaRusa.iniciarJuego();
+  });
+
   class MontañaRusa {
     constructor() {
       this.personas = [];
@@ -66,27 +83,6 @@ function inicio() {
     }
 
     iniciarJuego() {
-      this.largoDeFila = parseInt(
-        prompt(
-          "Seleccione el largo de la fila:\n1 - Corta\n2 - Media\n3 - Larga"
-        )
-      );
-
-      switch (this.largoDeFila) {
-        case 1:
-          this.cantidadPersonas = 3;
-          break;
-        case 2:
-          this.cantidadPersonas = 5;
-          break;
-        case 3:
-          this.cantidadPersonas = 8;
-          break;
-        default:
-          alert("Opción inválida. Largo de fila por defecto: Corta");
-          this.cantidadPersonas = 3;
-      }
-
       for (let i = 1; i <= this.cantidadPersonas; i++) {
         while (true) {
           this.altura = prompt(
