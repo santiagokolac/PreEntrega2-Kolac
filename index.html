@@ -29,11 +29,30 @@
           </div>
         </div>
 
-        <div id="largoFila" style="display: none">
+        <!-- <div id="largoFila" style="display: none">
           <h1>Seleccione el largo de la fila:</h1>
           <button id="cortaBtn">Corta</button>
           <button id="mediaBtn">Media</button>
           <button id="largaBtn">Larga</button>
+        </div> -->
+
+        <div id="fichaPersona">
+          <h2>Persona</h2>
+          <div id="cajaAltura">
+            <p>Ingrese su altura en centímetros (entre 54 y 251)</p>
+            <input type="number" id="alturaPersona" />
+            <button id="alturaPersonaBtn">Confirmar</button>
+            <p id="alturaPositiva">Usted puede subir a la montaña rusa</p>
+            <p id="alturaNegativa">Usted no puede subir a la montaña rusa</p>
+          </div>
+          <div id="cajaEdad">
+            <p>Ingrese su edad (entre 0 y 118)</p>
+            <input type="number" id="edadPersona" />
+            <button id="edadPersonaBtn">Confirmar</button>
+            <p id="edadMayor">Usted debe abonar $1000</p>
+            <p id="edadMenor">Usted debe abonar $500</p>
+          </div>
+          <button id="siguientePersona">Siguiente persona</button>
         </div>
       </div>
       <button id="queueBtn">

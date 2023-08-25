@@ -22,7 +22,7 @@ body {
 }
 
 #cartel {
-  width: 35%;
+  width: 600px;
   background-color: rgba(184, 145, 78, 0.9);
   border-radius: 3%;
   border: dashed 4px #902010;
@@ -47,6 +47,10 @@ body {
   color: #902010;
   font-family: "IM Fell English", serif;
   font-size: 2.2vw;
+}
+
+#recaudacion {
+  display: none;
 }
 
 #tarifa h3,
@@ -78,7 +82,19 @@ body {
   padding: 5px;
 }
 
-#largoFila {
+#fichaPersona {
+  display: none;
+}
+
+#alturaPositiva {
+  display: none;
+}
+
+#alturaNegativa {
+  display: none;
+}
+
+#siguientePersona {
   display: none;
 }
 

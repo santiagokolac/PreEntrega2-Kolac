@@ -3,21 +3,11 @@ boton.addEventListener("click", inicio);
 
 function inicio() {
   document.getElementById("indicaciones").style.display = "none";
-  document.getElementById("largoFila").style.display = "block";
   boton.style.display = "none";
 
-  document.getElementById("cortaBtn").addEventListener("click", () => {
-    montañaRusa.cantidadPersonas = 3;
-    montañaRusa.iniciarJuego();
-  });
-  document.getElementById("mediaBtn").addEventListener("click", () => {
-    montañaRusa.cantidadPersonas = 5;
-    montañaRusa.iniciarJuego();
-  });
-  document.getElementById("largaBtn").addEventListener("click", () => {
-    montañaRusa.cantidadPersonas = 8;
-    montañaRusa.iniciarJuego();
-  });
+  document.getElementById("cajaAltura").style.display = "block";
+  document.getElementById("cajaEdad").style.display = "none";
+  alturaPersonaBtn = document.getElementById("alturaPersonaBtn");
 
   class MontañaRusa {
     constructor() {
@@ -33,6 +23,13 @@ function inicio() {
       this.dineroEl = document.getElementById("dineroEl");
       this.salarioEl = document.getElementById("salarioEl");
       this.personasEntraronKey = "personasEntraron";
+      this.alturaPersona = document.getElementById("alturaPersona");
+
+      alturaPersonaBtn.addEventListener("click", () => {
+        this.altura = Number(this.alturaPersona.value);
+        this.iniciarJuego();
+        console.log(this.altura);
+      });
     }
 
     guardarPersonasEntraron() {
@@ -83,12 +80,11 @@ function inicio() {
     }
 
     iniciarJuego() {
+      console.log(this.cantidadPersonas);
+      document.getElementById("fichaPersona").style.display = "block";
       for (let i = 1; i <= this.cantidadPersonas; i++) {
+        this.altura = this.alturaPersona.value;
         while (true) {
-          this.altura = prompt(
-            `Persona ${i}: Ingrese su altura en centímetros (entre 54 y 251)`
-          );
-
           if (!isNaN(this.altura) && this.altura >= 54 && this.altura <= 251) {
             break;
           } else {
@@ -97,10 +93,10 @@ function inicio() {
         }
 
         if (this.altura >= 160) {
-          alert("Usted puede subir a la montaña rusa");
+          Swal.fire("Usted puede subir a la montaña rusa");
           this.dineroRecaudado += this.evaluarEdad();
         } else {
-          alert("Usted no puede subir a la montaña rusa");
+          Swal.fire("Usted no puede subir a la montaña rusa");
         }
 
         let persona = {
@@ -109,6 +105,10 @@ function inicio() {
         };
 
         this.personas.push(persona);
+
+        document.getElementById("indicaciones").style.display = "block";
+        document.getElementById("recaudacion").style.display = "block";
+        /*         document.getElementById("largoFila").style.display = "none"; */
       }
 
       this.personasQueEntran = this.personas.filter(
